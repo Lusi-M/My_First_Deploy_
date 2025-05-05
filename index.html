@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoPassion | For Car Enthusiasts</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .hero-gradient {
+            background: linear-gradient(135deg, #1a1a1a 0%, #333333 100%);
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+        }
+        .car-card {
+            transition: all 0.3s ease;
+        }
+        .search-input:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.5);
+        }
+        .category-tag {
+            transition: all 0.2s ease;
+        }
+        .category-tag:hover {
+            background-color: #dc2626;
+            color: white;
+        }
+        .animated-underline {
+            position: relative;
+        }
+        .animated-underline:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            display: block;
+            margin-top: 2px;
+            right: 0;
+            background: #dc2626;
+            transition: width 0.3s ease;
+        }
+        .animated-underline:hover:after {
+            width: 100%;
+            left: 0;
+            background: #dc2626;
+        }
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .car-slider {
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+        }
+        .car-slide {
+            scroll-snap-align: start;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-100">
+    <!-- Header -->
+    <header class="bg-black shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-car text-red-600 text-2xl"></i>
+                <h1 class="text-xl font-bold text-white">Auto<span class="text-red-600">Passion</span></h1>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#" class="text-gray-300 hover:text-white animated-underline font-medium">Home</a>
+                <a href="#" class="text-gray-300 hover:text-white animated-underline font-medium">Galleries</a>
+                <a href="#" class="text-gray-300 hover:text-white animated-underline font-medium">Reviews</a>
+                <a href="#" class="text-gray-300 hover:text-white animated-underline font-medium">Events</a>
+                <a href="#" class="text-gray-300 hover:text-white animated-underline font-medium">Forum</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <button class="md:hidden text-gray-300">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+                <button class="hidden md:block bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md font-medium transition duration-300">
+                    Join Community
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white py-16 md:py-24 relative overflow-hidden">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-3xl mx-auto text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">Fuel Your Passion for Automobiles</h1>
+                <p class="text-xl mb-8 opacity-90">Discover, share, and connect with fellow car enthusiasts worldwide.</p>
+                <div class="relative max-w-xl mx-auto">
+                    <input type="text" placeholder="Search car models, brands, or events..." 
+                           class="search-input w-full px-6 py-4 rounded-full text-gray-800 focus:ring-2 focus:ring-red-300">
+                    <button class="absolute right-2 top-2 bg-red-600 hover:bg-red-700 text-white p-2 rounded-full">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                 alt="Sports car" class="w-full h-full object-cover">
+        </div>
+    </section>
+
+    <!-- Featured Cars Slider -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-2xl font-bold text-gray-800">Featured Rides</h2>
+                <a href="#" class="text-red-600 hover:text-red-800 font-medium flex items-center">
+                    View All <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+            
+            <div class="relative">
+                <div class="car-slider flex overflow-x-auto pb-4 gap-6 scrollbar-hide">
+                    <!-- Car 1 -->
+                    <div class="car-slide flex-shrink-0 w-80 bg-white rounded-xl shadow-md overflow-hidden car-card card-hover">
+                        <div class="h-48 bg-gray-200 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                                 alt="Porsche 911" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-xl font-bold text-gray-800">Porsche 911 Turbo S</h3>
+                                <span class="bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded">Featured</span>
+                            </div>
+                            <div class="flex flex-wrap gap-2 mb-3">
+                                <span class="category-tag bg-gray-200 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded">2023 Model</span>
+                                <span class="category-tag bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">640 HP</span>
+                                <span class="category-tag bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">2.6s 0-60</span>
+                            </div>
+                            <p class="text-gray-600 mb-4">The pinnacle of Porsche engineering with breathtaking performance and luxury.</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-700"><i class="fas fa-heart text-red-500 mr-1"></i> 1.2k</span>
+                                <span class="text-sm text-gray-500">Posted 3 days ago</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Car 2 -->
+                    <div class="car-slide flex-shrink-0 w-80 bg-white rounded-xl shadow-md overflow-hidden car-card card-hover">
+                        <div class="h-48 bg-gray-200 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                                 alt="Ford Mustang" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-xl font-bold text-gray-800">Ford Mustang GT</h3>
+                                <span class="bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded">Featured</span>
+                            </div>
+                            <div class="flex flex-wrap gap-2 mb-3">
+                                <span class="category-tag bg-gray-200 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded">2022 Model</span>
+                                <span class="category-tag bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">450 HP</span>
+                                <span class="category-tag bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">4.2s 0-60</span>
+                            </div>
+                            <p class="text-gray-600 mb-4">American muscle at its finest with modern tech and classic styling.</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-700"><i class="fas fa-heart text-red-500 mr-1"></i> 856</span>
+                                <span class="text-sm text-gray-500">Posted 1 week ago</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Car 3 -->
+                    <div class="car-slide flex-shrink-0 w-80 bg-white rounded-xl shadow-md overflow-hidden car-card card-hover">
+                        <div class="h-48 bg-gray-200 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                                 alt="Tesla Model S" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-xl font-bold text-gray-800">Tesla Model S Plaid</h3>
+                                <span class="bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded">Featured</span>
+                            </div>
+                            <div class="flex flex-wrap gap-2 mb-3">
+                                <span class="category-tag bg-gray-200 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded">2023 Model</span>
+                                <span class="category-tag bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">1,020 HP</span>
+                                <span class="category-tag bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">1.99s 0-60</span>
+                            </div>
+                            <p class="text-gray-600 mb-4">The fastest accelerating production car in the world with futuristic tech.</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-700"><i class="fas fa-heart text-red-500 mr-1"></i> 1.5k</span>
+                                <span class="text-sm text-gray-500">Posted 2 days ago</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Car 4 -->
+                    <div class="car-slide flex-shrink-0 w-80 bg-white rounded-xl shadow-md overflow-hidden car-card card-hover">
+                        <div class="h-48 bg-gray-200 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                                 alt="BMW M4" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-xl font-bold text-gray-800">BMW M4 Competition</h3>
+                                <span class="bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded">Featured</span>
+                            </div>
+                            <div class="flex flex-wrap gap-2 mb-3">
+                                <span class="category-tag bg-gray-200 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded">2023 Model</span>
+                                <span class="category-tag bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">503 HP</span>
+                                <span class="category-tag bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">3.8s 0-60</span>
+                            </div>
+                            <p class="text-gray-600 mb-4">German engineering meets aggressive styling in this track-ready coupe.</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-700"><i class="fas fa-heart text-red-500 mr-1"></i> 932</span>
+                                <span class="text-sm text-gray-500">Posted 5 days ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Car Categories -->
+    <section class="py-12 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold text-gray-800 mb-8 text-center">Explore Car Categories</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                <a href="#" class="bg-white p-6 rounded-lg shadow-sm text-center hover:bg-red-50 transition duration-300 border border-gray-200 hover:border-red-300">
+                    <i class="fas fa-bolt text-3xl text-red-600 mb-3"></i>
+                    <h3 class="font-medium text-gray-800">Supercars</h3>
+                </a>
+                <a href="#" class="bg-white p-6 rounded-lg shadow-sm text-center hover:bg-blue-50 transition duration-300 border border-gray-200 hover:border-blue-300">
+                    <i class="fas fa-car text-3xl text-blue-600 mb-3"></i>
+                    <h3 class="font-medium text-gray-800">Sedans</h3>
+                </a>
+                <a href="#" class="bg-white p-6 rounded-lg shadow-sm text-center hover:bg-yellow-50 transition duration-300 border border-gray-200 hover:border-yellow-300">
+                    <i class="fas fa-truck-pickup text-3xl text-yellow-600 mb-3"></i>
+                    <h3 class="font-medium text-gray-800">Trucks</h3>
+                </a>
+                <a href="#" class="bg-white p-6 rounded-lg shadow-sm text-center hover:bg-green-50 transition duration-300 border border-gray-200 hover:border-green-300">
+                    <i class="fas fa-leaf text-3xl text-green-600 mb-3"></i>
+                    <h3 class="font-medium text-gray-800">Electric</h3>
+                </a>
+                <a href="#" class="bg-white p-6 rounded-lg shadow-sm text-center hover:bg-purple-50 transition duration-300 border border-gray-200 hover:border-purple-300">
+                    <i class="fas fa-flag-checkered text-3xl text-purple-600 mb-3"></i>
+                    <h3 class="font-medium text-gray-800">Race Cars</h3>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upcoming Events -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-2xl font-bold text-gray-800">Upcoming Car Events</h2>
+                <a href="#" class="text-red-600 hover:text-red-800 font-medium flex items-center">
+                    View All Events <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Event 1 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden car-card card-hover">
+                    <div class="h-48 bg-gray-200 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1504215680853-026ed2a45def?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" 
+                             alt="Car show" class="w-full h-full object-cover">
+                        <div class="absolute bottom-0 left-0 bg-red-600 text-white px-4 py-1">
+                            <span class="font-bold">JUN 15</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">International Auto Show 2023</h3>
+                        <div class="flex items-center text-gray-600 mb-3">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>Los Angeles Convention Center</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">The premier automotive exhibition featuring the latest models and concept cars from top manufacturers.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-700"><i class="fas fa-users mr-1"></i> 5k+ attending</span>
+                            <button class="text-sm bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-md font-medium transition duration-300">
+                                Register
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Event 2 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden car-card card-hover">
+                    <div class="h-48 bg-gray-200 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1549318581-ec37ba9f64ca?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" 
+                             alt="Car race" class="w-full h-full object-cover">
+                        <div class="absolute bottom-0 left-0 bg-red-600 text-white px-4 py-1">
+                            <span class="font-bold">JUL 22</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">24 Hours of Le Mans</h3>
+                        <div class="flex items-center text-gray-600 mb-3">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>Circuit de la Sarthe, France</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">The world's oldest active endurance racing event, testing both man and machine to their limits.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-700"><i class="fas fa-users mr-1"></i> 250k+ attending</span>
+                            <button class="text-sm bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-md font-medium transition duration-300">
+                                Register
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Event 3 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden car-card card-hover">
+                    <div class="h-48 bg-gray-200 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80" 
+                             alt="Classic cars" class="w-full h-full object-cover">
+                        <div class="absolute bottom-0 left-0 bg-red-600 text-white px-4 py-1">
+                            <span class="font-bold">AUG 5</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Classic Car Festival</h3>
+                        <div class="flex items-center text-gray-600 mb-3">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>Pebble Beach, California</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Celebrating automotive history with the most beautiful and rare classic cars from around the world.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-700"><i class="fas fa-users mr-1"></i> 15k+ attending</span>
+                            <button class="text-sm bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-md font-medium transition duration-300">
+                                Register
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16 bg-gray-800 text-white parallax" style="background-image: url('https://images.unsplash.com/photo-1493238792000-8113da705763?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')">
+        <div class="absolute inset-0 bg-black opacity-70"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <h2 class="text-3xl font-bold mb-12 text-center">What Our Community Says</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-gray-900 bg-opacity-70 p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <img class="w-12 h-12 rounded-full mr-4" src="https://randomuser.me/api/portraits/men/32.jpg" alt="User">
+                        <div>
+                            <h4 class="font-bold">Michael R.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">"AutoPassion connected me with fellow Mustang enthusiasts in my area. We now have regular meetups and cruises. This platform is exactly what car lovers needed!"</p>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-gray-900 bg-opacity-70 p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <img class="w-12 h-12 rounded-full mr-4" src="https://randomuser.me/api/portraits/women/44.jpg" alt="User">
+                        <div>
+                            <h4 class="font-bold">Sarah L.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">"I've discovered so many amazing car events through this site that I would have never known about otherwise. The community is friendly and knowledgeable."</p>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-gray-900 bg-opacity-70 p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <img class="w-12 h-12 rounded-full mr-4" src="https://randomuser.me/api/portraits/men/75.jpg" alt="User">
+                        <div>
+                            <h4 class="font-bold">David K.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">"As a classic car restorer, I've found invaluable advice and parts leads through the AutoPassion forums. It's become my go-to resource for all things automotive."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 bg-red-600 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-6">Join Our Growing Community</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto opacity-90">Connect with thousands of car enthusiasts, share your passion, and stay updated on the automotive world.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <button class="bg-black hover:bg-gray-900 text-white px-8 py-3 rounded-md font-medium transition duration-300">
+                    Sign Up Free
+                </button>
+                <button class="bg-white hover:bg-gray-100 text-red-600 px-8 py-3 rounded-md font-medium transition duration-300">
+                    Learn More
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-gray-400 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fas fa-car text-red-600 text-2xl"></i>
+                        <h3 class="text-white text-xl font-bold">AutoPassion</h3>
+                    </div>
+                    <p class="mb-4">The ultimate destination for car enthusiasts since 2010.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-medium mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white transition duration-300">Home</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-300">Car Galleries</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-300">Car Reviews</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-300">Events Calendar</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-300">Discussion Forums</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-medium mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white transition duration-300">Buying Guides</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-300">Maintenance Tips</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-300">Modification Ideas</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-300">Car Care Products</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-300">Insurance Advice</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-medium mb-4">Contact Us</h4>
+                    <address class="not-italic">
+                        <p class="mb-2">AutoPassion Network</p>
+                        <p class="mb-2">123 Motor Avenue</p>
+                        <p class="mb-2">Detroit, MI 48201</p>
+                        <p class="mb-2">Email: contact@autopassion.com</p>
+                        <p>Phone: +1 (555) 987-6543</p>
+                    </address>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-sm text-center">
+                <p>&copy; 2023 AutoPassion. All rights reserved. | <a href="#" class="hover:text-white">Privacy Policy</a> | <a href="#" class="hover:text-white">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple JavaScript for mobile menu toggle and car slider navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle would go here
+            // In a real implementation, you would add click handler to show mobile menu
+            
+            // Car slider navigation
+            const slider = document.querySelector('.car-slider');
+            if (slider) {
+                let isDown = false;
+                let startX;
+                let scrollLeft;
+
+                slider.addEventListener('mousedown', (e) => {
+                    isDown = true;
+                    startX = e.pageX - slider.offsetLeft;
+                    scrollLeft = slider.scrollLeft;
+                });
+
+                slider.addEventListener('mouseleave', () => {
+                    isDown = false;
+                });
+
+                slider.addEventListener('mouseup', () => {
+                    isDown = false;
+                });
+
+                slider.addEventListener('mousemove', (e) => {
+                    if(!isDown) return;
+                    e.preventDefault();
+                    const x = e.pageX - slider.offsetLeft;
+                    const walk = (x - startX) * 2;
+                    slider.scrollLeft = scrollLeft - walk;
+                });
+            }
+        });
+    </script>
+</body>
+</html>
